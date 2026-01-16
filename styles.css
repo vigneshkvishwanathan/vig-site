@@ -266,16 +266,21 @@ h1{
 }
 .iconBtn:hover{ background: rgba(255,255,255,.12); }
 
-.modalBody{ padding: 14px; }
+.modalBody{
+  padding: 10px 10px 6px; /* top, sides, bottom */
+}
 
 .modalPlayerWrap{
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 0;
+  overflow: visible;
+  border: none;
+  background: transparent;
 }
+
 .modalPlayerWrap iframe{
-  border-radius: 16px;
+  border-radius: 24px;
   width:100%;
+  display: block; /* prevents phantom line-height space */
 }
 
 /* Modal: description left, actions right */
@@ -283,7 +288,7 @@ h1{
   display: grid;
   grid-template-columns: 1fr 220px;
   gap: 14px;
-  margin-top: 12px;
+  margin-top: 8px;  /* tighter */
   align-items: start;
 }
 

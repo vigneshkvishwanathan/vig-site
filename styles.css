@@ -6,9 +6,6 @@
   --line:rgba(255,255,255,.10);
   --line2:rgba(255,255,255,.14);
 
-  --panel:rgba(255,255,255,.04);
-  --panel2:rgba(255,255,255,.06);
-
   --shadow: 0 18px 60px rgba(0,0,0,.40);
   --shadow2: 0 10px 40px rgba(0,0,0,.22);
 
@@ -20,7 +17,7 @@ html{ scroll-behavior:smooth; }
 
 body{
   margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--text);
   background:
     radial-gradient(900px 650px at 20% 0%, rgba(120,90,255,.18), transparent 60%),
@@ -48,18 +45,18 @@ a:hover{ opacity:.92; }
 h1{
   margin:0;
   font-size: 44px;
-  letter-spacing: -0.04em;
-  line-height:1.05;
+  letter-spacing: -0.045em;
+  line-height:1.02;
 }
 
 .section{ margin-top: 28px; }
 
 .section h2{
   margin:0 0 14px;
-  font-size: 18px;
-  letter-spacing: .10em;
+  font-size: 13px;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  color: rgba(243,244,246,.82);
+  color: rgba(243,244,246,.78);
 }
 
 .muted{
@@ -71,10 +68,10 @@ h1{
 /* Two-column store layout */
 .storeLayout{
   display:grid;
-  grid-template-columns: 1.15fr .85fr; /* loops slightly wider */
+  grid-template-columns: 1.15fr .85fr;
   gap: 26px;
   align-items:start;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .storeCol{
@@ -113,38 +110,69 @@ h1{
   background: rgba(255,255,255,.03);
   padding: 14px;
   display:grid;
-  grid-template-columns: 72px 1fr;
+  grid-template-columns: 84px 1fr;
   gap: 12px;
   align-items:center;
   cursor:pointer;
   color: var(--text);
-  transition: background .12s ease, border-color .12s ease, transform .10s ease;
+  transition: background .14s ease, border-color .14s ease, transform .12s ease, box-shadow .14s ease;
 }
 
 .tile:hover{
   background: rgba(255,255,255,.05);
-  border-color: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.14);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 60px rgba(0,0,0,.28);
 }
 
-.tile:active{ transform: translateY(1px); }
+.tile:active{ transform: translateY(0px); }
+
+.tile:focus-visible{
+  outline: none;
+  border-color: rgba(255,255,255,.26);
+  box-shadow:
+    0 0 0 4px rgba(120,90,255,.18),
+    0 14px 60px rgba(0,0,0,.28);
+}
+
+.tileText{
+  display:flex;
+  flex-direction:column;
+  gap: 3px;
+  min-width: 0;
+}
 
 .tileTitle{
   font-size: 15px;
   letter-spacing: .005em;
-  font-weight: 560;
+  font-weight: 600;
   line-height: 1.2;
+}
+
+.tileSub{
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(243,244,246,.55);
 }
 
 /* Cover image */
 .cover{
-  width: 72px;
-  height: 72px;
-  border-radius: 16px;
+  width: 84px;
+  height: 84px;
+  border-radius: 18px;
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 10px 30px rgba(0,0,0,.30);
   overflow: hidden;
   background: rgba(255,255,255,.03);
+  transition: transform .14s ease, border-color .14s ease;
 }
+
+.tile:hover .cover{
+  transform: scale(1.02);
+  border-color: rgba(255,255,255,.16);
+}
+
 .cover img{
   width: 100%;
   height: 100%;
@@ -166,7 +194,7 @@ h1{
   text-decoration:none;
   cursor:pointer;
   user-select:none;
-  transition: transform .08s ease, background .12s ease, border-color .12s ease;
+  transition: transform .10s ease, background .14s ease, border-color .14s ease;
 }
 
 .btn:hover{
@@ -195,19 +223,31 @@ h1{
   align-items:center;
   justify-content:center;
   padding: 18px;
-  background: rgba(0,0,0,.60);
+  background: rgba(0,0,0,.62);
   backdrop-filter: blur(12px);
   z-index: 50;
+  opacity: 0;
+  transition: opacity .14s ease;
 }
-.modalOverlay.open{ display:flex; }
+
+.modalOverlay.open{
+  display:flex;
+  opacity: 1;
+}
 
 .modal{
-  width: min(940px, 100%);
+  width: min(820px, 100%);
   background: rgba(14,16,22,.92);
   border: 1px solid rgba(255,255,255,.12);
   border-radius: 18px;
   overflow:hidden;
   box-shadow: 0 30px 120px rgba(0,0,0,.65);
+  transform: scale(.985) translateY(4px);
+  transition: transform .14s ease;
+}
+
+.modalOverlay.open .modal{
+  transform: scale(1) translateY(0);
 }
 
 .modalTop{
@@ -243,14 +283,14 @@ h1{
 }
 
 .modalTitle{
-  font-weight: 600;
-  letter-spacing: .02em;
+  font-weight: 650;
+  letter-spacing: .01em;
 }
 
 .modalKicker{
   margin-top: 2px;
   font-size: 12px;
-  letter-spacing: .10em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: rgba(243,244,246,.55);
 }
@@ -266,21 +306,17 @@ h1{
 }
 .iconBtn:hover{ background: rgba(255,255,255,.12); }
 
-.modalBody{
-  padding: 10px 10px 6px; /* top, sides, bottom */
-}
+.modalBody{ padding: 10px 10px 8px; }
 
+/* Let Untitled be the only framed element */
 .modalPlayerWrap{
-  border-radius: 0;
-  overflow: visible;
   border: none;
   background: transparent;
 }
-
 .modalPlayerWrap iframe{
-  border-radius: 24px;
   width:100%;
-  display: block; /* prevents phantom line-height space */
+  display:block;
+  border-radius: 24px;
 }
 
 /* Modal: description left, actions right */
@@ -288,8 +324,12 @@ h1{
   display: grid;
   grid-template-columns: 1fr 220px;
   gap: 14px;
-  margin-top: 8px;  /* tighter */
+  margin-top: 10px;
   align-items: start;
+}
+
+.modalLeft{
+  min-width: 0;
 }
 
 .modalDesc{
@@ -298,7 +338,7 @@ h1{
   border: 1px solid rgba(255,255,255,.08);
   background: rgba(255,255,255,.03);
   color: rgba(243,244,246,.70);
-  line-height: 1.55;
+  line-height: 1.6;
   font-size: 14px;
 }
 
@@ -313,7 +353,7 @@ h1{
   justify-content:flex-end;
 }
 
-/* Mobile modal stacking */
+/* Mobile */
 @media (max-width: 720px){
   .modalContentGrid{
     grid-template-columns: 1fr;
@@ -324,4 +364,18 @@ h1{
   .btnPrimary{
     width:auto;
   }
+  .tile{
+    grid-template-columns: 76px 1fr;
+  }
+  .cover{
+    width: 76px;
+    height: 76px;
+    border-radius: 16px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .tile, .cover, .modalOverlay, .modal{ transition: none; }
+  .tile:hover{ transform: none; }
 }

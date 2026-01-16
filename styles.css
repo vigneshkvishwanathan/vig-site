@@ -57,12 +57,12 @@ a:hover{ opacity:.92; }
 .wrap{
   max-width: 1080px;
   margin: 0 auto;
-  padding: 34px 20px;
+  padding: 18px 20px;
 }
 
 .top{
   display:flex;
-  align-items:flex-start;
+  align-items:center;
   justify-content:space-between;
   gap:16px;
   flex-wrap:wrap;
@@ -76,20 +76,20 @@ h1{
 }
 
 .siteLogo{
-  height: 100px;
+  height: 90px;
   width: auto;
   display: block;
   user-select: none;
 }
 
-.section{ margin-top: 28px; }
+.section{ margin-top: 20px; }
 
 .section h2{
-  margin:0 0 14px;
-  font-size: 13px;
-  letter-spacing: .14em;
+  margin:0 0 16px;
+  font-size: 15px;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(243,244,246,.78);
+  color: rgba(243,244,246,.85);
 }
 
 .muted{
@@ -118,7 +118,7 @@ h1{
   background: rgba(255,255,255,.045);
   border: 1px solid rgba(255,255,255,.10);
   border-radius: var(--radius);
-  padding: 18px;
+  padding: 20px 16px 16px;
   box-shadow: var(--shadow2);
   backdrop-filter: blur(10px);
 }
@@ -411,4 +411,134 @@ h1{
 @media (prefers-reduced-motion: reduce){
   .tile, .cover, .modalOverlay, .modal{ transition: none; }
   .tile:hover{ transform: none; }
+}
+
+/* Featured section layout */
+.sectionHead{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 4px;
+}
+
+.featuredGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.tileFeatured{
+  grid-template-columns: 110px 1fr;
+}
+
+.coverFeatured{
+  width: 110px;
+  height: 110px;
+  border-radius: 22px;
+}
+
+@media (max-width: 980px){
+  .featuredGrid{ grid-template-columns: 1fr; }
+  .tileFeatured{ grid-template-columns: 96px 1fr; }
+  .coverFeatured{ width: 96px; height: 96px; border-radius: 20px; }
+}
+
+/* Remove extra vertical gap inside Archive */
+.section .storeLayout .section{
+  margin-top: 0;
+}
+
+/* Bigger separation between top-level sections (Featured / Archive / Contact) */
+main.wrap > .section{
+  margin-top: 44px;
+}
+
+main.wrap > .section:first-child{
+  margin-top: 0;
+}
+
+.featuredSection{
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 6px;
+}
+
+/* Floating Instagram button */
+.igFloat{
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--text);
+  text-decoration:none;
+  box-shadow: var(--shadow2);
+  z-index: 20;
+  transition: transform .12s ease, background .14s ease, border-color .14s ease;
+}
+
+.igFloat:hover{
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.22);
+  transform: translateY(-50%) scale(1.04);
+}
+
+.igFloat:active{
+  transform: translateY(-50%) scale(0.98);
+}
+
+@media (max-width: 720px){
+  .igFloat{
+    right: 14px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Instagram button in header */
+.igHeader{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--text);
+  text-decoration:none;
+  box-shadow: var(--shadow2);
+  transition: transform .12s ease, background .14s ease, border-color .14s ease;
+}
+
+.igHeader:hover{
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.22);
+  transform: scale(1.04);
+}
+
+.igHeader:active{
+  transform: scale(0.97);
+}
+
+body{
+  overflow-x: hidden;
+}
+
+/* Kill the tiny extra scroll: reduce bottom padding */
+header.wrap{
+  padding-bottom: 10px;
+}
+
+main.wrap{
+  padding-bottom: 10px;
 }

@@ -150,3 +150,25 @@ h3 { margin: 0; font-size: 15px; letter-spacing: 0.08em; }
 .modalBody iframe {
   border-radius: 16px;
 }
+
+/* Two-column store layout */
+.storeLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Each column */
+.storeCol {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Stack on mobile */
+@media (max-width: 900px) {
+  .storeLayout {
+    grid-template-columns: 1fr;
+  }
+}

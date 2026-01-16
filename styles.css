@@ -45,6 +45,10 @@ body > *{
   z-index: 1;
 }
 
+button, input, select, textarea{
+  font: inherit;
+  color: inherit;
+}
 
 
 a{ color:var(--text); }

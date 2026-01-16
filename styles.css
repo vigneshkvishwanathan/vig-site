@@ -68,7 +68,7 @@ h1{
   line-height: 1.55;
 }
 
-/* Two-column layout */
+/* Two-column store layout */
 .storeLayout{
   display:grid;
   grid-template-columns: 1.15fr .85fr; /* loops slightly wider */
@@ -98,7 +98,7 @@ h1{
   h1{ font-size: 38px; }
 }
 
-/* ---- Tiles (card-only) ---- */
+/* ---- Album tiles ---- */
 .tileGrid{
   display:grid;
   grid-template-columns: 1fr;
@@ -113,7 +113,7 @@ h1{
   background: rgba(255,255,255,.03);
   padding: 14px;
   display:grid;
-  grid-template-columns: 58px 1fr;
+  grid-template-columns: 72px 1fr;
   gap: 12px;
   align-items:center;
   cursor:pointer;
@@ -130,25 +130,27 @@ h1{
 
 .tileTitle{
   font-size: 15px;
-  letter-spacing: .01em;
+  letter-spacing: .005em;
+  font-weight: 560;
   line-height: 1.2;
 }
 
-/* Cover tiles (placeholders for now) */
+/* Cover image */
 .cover{
-  width: 58px;
-  height: 58px;
-  border-radius: 14px;
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 10px 30px rgba(0,0,0,.30);
+  overflow: hidden;
+  background: rgba(255,255,255,.03);
 }
-
-.coverA{ background: radial-gradient(90px 90px at 20% 15%, rgba(120,90,255,.55), rgba(255,255,255,.02)); }
-.coverB{ background: radial-gradient(90px 90px at 20% 15%, rgba(0,200,255,.45), rgba(255,255,255,.02)); }
-.coverC{ background: radial-gradient(90px 90px at 20% 15%, rgba(255,120,120,.38), rgba(255,255,255,.02)); }
-.coverD{ background: radial-gradient(90px 90px at 20% 15%, rgba(255,210,90,.40), rgba(255,255,255,.02)); }
-.coverE{ background: radial-gradient(90px 90px at 20% 15%, rgba(140,255,170,.30), rgba(255,255,255,.02)); }
-.coverF{ background: radial-gradient(90px 90px at 20% 15%, rgba(190,160,255,.35), rgba(255,255,255,.02)); }
+.cover img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 /* Buttons */
 .btn{
@@ -174,10 +176,10 @@ h1{
 
 .btn:active{ transform: translateY(1px); }
 
-.btnGhost{
-  background: rgba(255,255,255,.05);
+.btnPrimary{
+  width: 100%;
+  justify-content: center;
 }
-.btnGhost:hover{ background: rgba(255,255,255,.09); }
 
 /* Footer */
 .foot{
@@ -217,9 +219,40 @@ h1{
   border-bottom: 1px solid rgba(255,255,255,.10);
 }
 
+.modalTopLeft{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.modalThumb{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  overflow:hidden;
+  background: rgba(255,255,255,.06);
+  flex: 0 0 auto;
+}
+.modalThumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
 .modalTitle{
   font-weight: 600;
   letter-spacing: .02em;
+}
+
+.modalKicker{
+  margin-top: 2px;
+  font-size: 12px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(243,244,246,.55);
 }
 
 .iconBtn{
@@ -245,16 +278,16 @@ h1{
   width:100%;
 }
 
-.modalActions{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items:center;
+/* Modal: description left, actions right */
+.modalContentGrid{
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 14px;
   margin-top: 12px;
+  align-items: start;
 }
 
 .modalDesc{
-  margin-top: 12px;
   padding: 12px 12px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.08);
@@ -264,8 +297,26 @@ h1{
   font-size: 14px;
 }
 
-.modalDesc .meta{
-  color: rgba(243,244,246,.55);
-  font-size: 12.5px;
-  letter-spacing: .02em;
+.modalSide{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.modalActions{
+  width:100%;
+  display:flex;
+  justify-content:flex-end;
+}
+
+/* Mobile modal stacking */
+@media (max-width: 720px){
+  .modalContentGrid{
+    grid-template-columns: 1fr;
+  }
+  .modalActions{
+    justify-content:flex-start;
+  }
+  .btnPrimary{
+    width:auto;
+  }
 }

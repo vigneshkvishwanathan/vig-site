@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VIG</title>
-    <meta name="description" content="Loops + drums by VIG." />
+    <meta name="description" content="VIG — featured drops + latest video." />
 
-    <!-- Performance -->
     <link rel="preconnect" href="https://untitled.stream" />
+    <link rel="preconnect" href="https://www.youtube.com" />
+    <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Typography (Google Sans vibe) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -22,228 +22,124 @@
 
   <body>
     <header class="wrap">
-  <div class="top">
-    <div>
-      <img src="assets/Viglogowhite.png" alt="VIG" class="siteLogo" />
-    </div>
+      <div class="top">
+        <a href="index.html" class="brand" aria-label="Home">
+          <img src="assets/Viglogowhite.png" alt="VIG" class="siteLogo" />
+        </a>
 
-    <a
-      href="https://instagram.com/beatsbyvig"
-      target="_blank"
-      rel="noreferrer"
-      class="igHeader"
-      aria-label="Open Instagram"
-    >
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="17" cy="7" r="1" fill="currentColor"/>
-      </svg>
-    </a>
-  </div>
-</header>
+        <div class="topRight">
+          <a class="navLink" href="music.html">Music</a>
+
+          <a
+            href="https://instagram.com/beatsbyvig"
+            target="_blank"
+            rel="noreferrer"
+            class="igHeader"
+            aria-label="Open Instagram"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="17" cy="7" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
 
     <main class="wrap">
-      <!-- FEATURED -->
-      <section class="section featuredSection">
+      <!-- HERO FEATURED -->
+      <section class="section featuredHero">
         <div class="sectionHead">
           <h2>Featured</h2>
         </div>
 
-        <div class="featuredGrid">
-          <!-- Featured 1 (placeholder) -->
+        <div class="heroGrid">
+          <!-- Hero 1 (temp cover) -->
           <button
-            class="tile tileFeatured"
+            class="heroCard"
             type="button"
             data-category="Featured"
             data-title="Coming Soon"
             data-cover="assets/covers/colors-vig-x-pstmn-cover-art.png"
             data-preview=""
-            data-buy="https://instagram.com/beatsbyvig"
-            data-desc="Next release dropping soon. Follow @beatsbyvig for updates."
+            data-buy="music.html"
+            data-desc="New drop coming soon. Tap Music to explore the catalog."
           >
-            <div class="cover coverFeatured">
+            <div class="heroCover">
               <img
                 src="assets/covers/colors-vig-x-pstmn-cover-art.png"
                 alt="Coming Soon cover"
                 loading="lazy"
               />
             </div>
-            <div class="tileText">
-              <div class="tileTitle">Coming Soon</div>
-              <div class="tileSub">Featured</div>
+            <div class="heroMeta">
+              <div class="heroTitle">Coming Soon</div>
+              <div class="heroSub">Next release</div>
+              <div class="heroCtaRow">
+                <span class="heroPill">Preview soon</span>
+              </div>
+            </div>
+          </button>
+
+          <!-- Hero 2 (temp cover) -->
+          <button
+            class="heroCard"
+            type="button"
+            data-category="Featured"
+            data-title="Coming Soon"
+            data-cover="assets/covers/colors-vig-x-pstmn-cover-art.png"
+            data-preview=""
+            data-buy="music.html"
+            data-desc="Second featured slot. When it’s live, this will open the preview player + buy link."
+          >
+            <div class="heroCover">
+              <img
+                src="assets/covers/colors-vig-x-pstmn-cover-art.png"
+                alt="Coming Soon cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="heroMeta">
+              <div class="heroTitle">Coming Soon</div>
+              <div class="heroSub">Featured</div>
+              <div class="heroCtaRow">
+                <span class="heroPill">New</span>
+              </div>
             </div>
           </button>
         </div>
       </section>
 
-      <!-- ARCHIVE -->
+      <!-- LATEST VIDEO -->
       <section class="section">
         <div class="sectionHead">
-          <h2>Archive</h2>
+          <h2>Latest Video</h2>
         </div>
 
-        <div class="storeLayout">
-          <!-- LOOPS -->
-          <div class="storeCol">
-            <section class="section">
-              <h2>Loops</h2>
-
-              <div class="tileGrid">
-                <button
-                  class="tile"
-                  type="button"
-                  data-category="Loops"
-                  data-title="VIG Sampler 001"
-                  data-cover="assets/covers/vig-sampler-001-cover-art.png"
-                  data-preview="https://untitled.stream/embed/cown93EcBEwW"
-                  data-buy="https://untitled.stream/library/project/pIur9k2oXWJo9gKJqvqLw"
-                  data-desc="5 moody, dusty loops. Composed, mixed, and processed by me.
-
-*stems available upon request. DM me on Instagram @beatsbyvig
-
-.wav 44.1kHz"
-                >
-                  <div class="cover">
-                    <img
-                      src="assets/covers/vig-sampler-001-cover-art.png"
-                      alt="VIG Sampler 001 cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="tileText">
-                    <div class="tileTitle">VIG Sampler 001</div>
-                    <div class="tileSub">Loops</div>
-                  </div>
-                </button>
-
-                <button
-                  class="tile"
-                  type="button"
-                  data-category="Loops"
-                  data-title="VIG Sampler 002"
-                  data-cover="assets/covers/vig-sampler-002-cover-art.png"
-                  data-preview="https://untitled.stream/embed/F5QNthroz09S"
-                  data-buy="https://untitled.stream/library/project/xVYbn0UCnvo66FJUvB2Yi"
-                  data-desc="5 dark, vintage loops. Composed, mixed, and processed by me.
-
-*stems available upon request. DM me on Instagram @beatsbyvig
-
-.wav 44.1kHz"
-                >
-                  <div class="cover">
-                    <img
-                      src="assets/covers/vig-sampler-002-cover-art.png"
-                      alt="VIG Sampler 002 cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="tileText">
-                    <div class="tileTitle">VIG Sampler 002</div>
-                    <div class="tileSub">Loops</div>
-                  </div>
-                </button>
-
-                <button
-                  class="tile"
-                  type="button"
-                  data-category="Loops"
-                  data-title="VIG Sampler 003"
-                  data-cover="assets/covers/vig-sampler-003-cover-art.png"
-                  data-preview="https://untitled.stream/embed/J6sDt5cJ0Zcr"
-                  data-buy="https://untitled.stream/library/project/Khw9yheCAMHIDYdd4TFIg"
-                  data-desc="5 modern synth loops. Composed, mixed, and processed by me.
-
-*stems available upon request. DM me on Instagram @beatsbyvig
-
-.wav 44.1kHz"
-                >
-                  <div class="cover">
-                    <img
-                      src="assets/covers/vig-sampler-003-cover-art.png"
-                      alt="VIG Sampler 003 cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="tileText">
-                    <div class="tileTitle">VIG Sampler 003</div>
-                    <div class="tileSub">Loops</div>
-                  </div>
-                </button>
-              </div>
-            </section>
+        <!-- Replace this placeholder with your YouTube embed when it’s uploaded -->
+        <div class="videoFrame">
+          <div class="videoPlaceholder">
+            Upload your video, then paste the YouTube embed iframe here.
           </div>
 
-          <!-- DRUMS -->
-          <div class="storeCol">
-            <section class="section">
-              <h2>Drums</h2>
-
-              <div class="tileGrid">
-                <button
-                  class="tile"
-                  type="button"
-                  data-category="Drums"
-                  data-title="VIG Breaks 001"
-                  data-cover="assets/covers/vig-breaks-001-cover-art.png"
-                  data-preview="https://untitled.stream/embed/EPGNrJrOk0RM"
-                  data-buy="https://untitled.stream/library/project/Qk1X5gfHEzBwParRdsxb9"
-                  data-desc="5 crunchy hip-hop breaks. Composed, mixed, and processed by me.
-
-.wav 44.1kHz"
-                >
-                  <div class="cover">
-                    <img
-                      src="assets/covers/vig-breaks-001-cover-art.png"
-                      alt="VIG Breaks 001 cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="tileText">
-                    <div class="tileTitle">VIG Breaks 001</div>
-                    <div class="tileSub">Drums</div>
-                  </div>
-                </button>
-
-                <button
-                  class="tile"
-                  type="button"
-                  data-category="Drums"
-                  data-title="VIG Breaks 002"
-                  data-cover="assets/covers/vig-breaks-002-cover-art.png"
-                  data-preview="https://untitled.stream/embed/xCAZohh6v9Ir"
-                  data-buy="https://untitled.stream/library/project/1wx4nEN6VBfht4JKt5BUw"
-                  data-desc="5 heavy hip-hop breaks, with a modern twist. Composed, mixed, and processed by me.
-
-.wav 44.1kHz"
-                >
-                  <div class="cover">
-                    <img
-                      src="assets/covers/vig-breaks-002-cover-art.png"
-                      alt="VIG Breaks 002 cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="tileText">
-                    <div class="tileTitle">VIG Breaks 002</div>
-                    <div class="tileSub">Drums</div>
-                  </div>
-                </button>
-              </div>
-            </section>
-          </div>
+          <!-- Example (swap VIDEO_ID):
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+          -->
         </div>
       </section>
-
     </main>
 
-    <footer class="wrap foot">
-      <p class="muted">© <span id="y"></span> VIG</p>
-    </footer>
-
-    <!-- MODAL -->
+    <!-- MODAL (reused so hero cards can open like packs later) -->
     <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
-      <div class="modal" role="dialog" aria-modal="true" aria-label="Pack details">
+      <div class="modal" role="dialog" aria-modal="true" aria-label="Details">
         <div class="modalTop">
           <div class="modalTopLeft">
             <div class="modalThumb" id="modalThumb" aria-hidden="true"></div>
@@ -252,7 +148,6 @@
               <div class="modalKicker" id="modalKicker"></div>
             </div>
           </div>
-
           <button class="iconBtn" type="button" id="closeModal" aria-label="Close">✕</button>
         </div>
 
@@ -267,7 +162,7 @@
               allow="picture-in-picture"
               frameborder="0"
               loading="lazy"
-              title="Untitled player preview"
+              title="Player preview"
             ></iframe>
           </div>
 
@@ -275,7 +170,6 @@
             <div class="modalLeft">
               <div class="modalDesc" id="modalDesc"></div>
             </div>
-
             <aside class="modalSide">
               <div class="modalActions" id="modalActions"></div>
             </aside>
@@ -285,8 +179,6 @@
     </div>
 
     <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-
       const overlay = document.getElementById("modalOverlay");
       const frame = document.getElementById("modalFrame");
       const playerWrap = document.getElementById("modalPlayerWrap");
@@ -363,16 +255,16 @@
       }
 
       document.addEventListener("click", (e) => {
-        const tile = e.target.closest(".tile");
-        if (!tile) return;
+        const trigger = e.target.closest(".tile, .heroCard");
+        if (!trigger) return;
 
         openModal({
-          category: tile.dataset.category || "",
-          title: tile.dataset.title || "",
-          cover: tile.dataset.cover || "",
-          preview: tile.dataset.preview || "",
-          buy: tile.dataset.buy || "",
-          desc: tile.dataset.desc || "",
+          category: trigger.dataset.category || "",
+          title: trigger.dataset.title || "",
+          cover: trigger.dataset.cover || "",
+          preview: trigger.dataset.preview || "",
+          buy: trigger.dataset.buy || "",
+          desc: trigger.dataset.desc || "",
         });
       });
 

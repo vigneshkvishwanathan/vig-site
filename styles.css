@@ -608,3 +608,43 @@ html, body, button, input, textarea, select{
 .modalDesc{
   background: rgba(0,0,0,.22) !important;
 }
+
+
+/* =========================
+   GLOBAL SPACING TIGHTEN (ALL PAGES) — SAFE VERSION
+   ========================= */
+
+.wrap{
+  padding: 14px 20px !important;
+}
+
+/* Reduce gap after the header */
+main.wrap{
+  padding-top: 8px !important;
+}
+
+.section{
+  margin-top: 14px !important;
+}
+
+.section h2{
+  margin-bottom: 10px !important;
+}
+
+.sectionHead{
+  margin-bottom: 4px !important;
+}
+
+/* HOME: tighten the first section a touch more */
+body.home main.wrap .section:first-child{
+  margin-top: 10px !important;
+}
+
+
+/* =========================
+   FIX: DON'T SHRINK THE YOUTUBE BOX
+   ========================= */
+
+.videoEmbed{
+  max-height: none !important;
+}

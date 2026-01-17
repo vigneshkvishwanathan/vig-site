@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VIG</title>
-    <meta name="description" content="VIG — featured drops + latest video." />
+    <meta name="description" content="VIG — featured drops and latest video." />
 
     <link rel="preconnect" href="https://untitled.stream" />
     <link rel="preconnect" href="https://www.youtube.com" />
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <body>
+  <body class="home">
     <header class="wrap">
       <div class="top">
         <a href="index.html" class="brand" aria-label="Home">
@@ -55,7 +55,7 @@
         </div>
 
         <div class="heroGrid">
-          <!-- Hero 1 (temp cover) -->
+          <!-- Hero 1 -->
           <button
             class="heroCard"
             type="button"
@@ -64,7 +64,7 @@
             data-cover="assets/covers/colors-vig-x-pstmn-cover-art.png"
             data-preview=""
             data-buy="music.html"
-            data-desc="New drop coming soon. Tap Music to explore the catalog."
+            data-desc="New drop coming soon. Check the Music page for the full catalog."
           >
             <div class="heroCover">
               <img
@@ -75,14 +75,14 @@
             </div>
             <div class="heroMeta">
               <div class="heroTitle">Coming Soon</div>
-              <div class="heroSub">Next release</div>
+              <div class="heroSub">Next Release</div>
               <div class="heroCtaRow">
                 <span class="heroPill">Preview soon</span>
               </div>
             </div>
           </button>
 
-          <!-- Hero 2 (temp cover) -->
+          <!-- Hero 2 -->
           <button
             class="heroCard"
             type="button"
@@ -91,7 +91,7 @@
             data-cover="assets/covers/colors-vig-x-pstmn-cover-art.png"
             data-preview=""
             data-buy="music.html"
-            data-desc="Second featured slot. When it’s live, this will open the preview player + buy link."
+            data-desc="Second featured slot. When live, this will open the preview player and buy link."
           >
             <div class="heroCover">
               <img
@@ -113,17 +113,12 @@
 
       <!-- LATEST VIDEO -->
       <section class="section">
-        <div class="sectionHead">
-          <h2>Latest Video</h2>
-        </div>
-
-        <!-- Replace this placeholder with your YouTube embed when it’s uploaded -->
         <div class="videoFrame">
           <div class="videoPlaceholder">
             Upload your video, then paste the YouTube embed iframe here.
           </div>
 
-          <!-- Example (swap VIDEO_ID):
+          <!-- When ready, replace the placeholder with:
           <iframe
             src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
             title="YouTube video player"
@@ -137,7 +132,7 @@
       </section>
     </main>
 
-    <!-- MODAL (reused so hero cards can open like packs later) -->
+    <!-- MODAL (for future featured previews) -->
     <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
       <div class="modal" role="dialog" aria-modal="true" aria-label="Details">
         <div class="modalTop">
@@ -200,11 +195,7 @@
 
       function formatDesc(desc) {
         const safe = escapeHtml(desc || "");
-        const withLinks = safe.replaceAll(
-          "@beatsbyvig",
-          "<a href=\"https://instagram.com/beatsbyvig\" target=\"_blank\" rel=\"noreferrer\">@beatsbyvig</a>"
-        );
-        return withLinks.replaceAll("\n", "<br>");
+        return safe.replaceAll("\n", "<br>");
       }
 
       function openModal({ category, title, cover, preview, buy, desc }) {
@@ -255,7 +246,7 @@
       }
 
       document.addEventListener("click", (e) => {
-        const trigger = e.target.closest(".tile, .heroCard");
+        const trigger = e.target.closest(".heroCard");
         if (!trigger) return;
 
         openModal({

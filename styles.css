@@ -45,27 +45,37 @@ body > *{
   z-index: 1;
 }
 
+/* Make form controls inherit the site font (fixes “system button” look) */
 button, input, select, textarea{
   font: inherit;
   color: inherit;
 }
 
-
 a{ color:var(--text); }
 a:hover{ opacity:.92; }
 
+/* Shared page wrapper (used by header.wrap and main.wrap) */
 .wrap{
   max-width: 1080px;
   margin: 0 auto;
-  padding: 18px 20px;
+  padding: 18px 20px; /* tuned tighter */
 }
 
+/* Header row */
 .top{
   display:flex;
-  align-items:center;
+  align-items:center;          /* vertical centering logo + right items */
   justify-content:space-between;
   gap:16px;
   flex-wrap:wrap;
+}
+
+/* Logo */
+.siteLogo{
+  height: 92px; /* slightly reduced to help above-the-fold fit */
+  width: auto;
+  display: block;
+  user-select: none;
 }
 
 h1{
@@ -75,13 +85,7 @@ h1{
   line-height:1.02;
 }
 
-.siteLogo{
-  height: 90px;
-  width: auto;
-  display: block;
-  user-select: none;
-}
-
+/* Section spacing */
 .section{ margin-top: 20px; }
 
 .section h2{
@@ -90,6 +94,15 @@ h1{
   letter-spacing: .12em;
   text-transform: uppercase;
   color: rgba(243,244,246,.85);
+  font-weight: 600;
+}
+
+.sectionHead{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 4px;
 }
 
 .muted{
@@ -98,19 +111,73 @@ h1{
   line-height: 1.55;
 }
 
-/* Two-column store layout */
+/* Header nav */
+.brand{ display:inline-flex; align-items:center; text-decoration:none; }
+.topRight{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.navLink{
+  color: rgba(243,244,246,.78);
+  text-decoration:none;
+  font-size: 14px;
+  letter-spacing: .02em;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: background .14s ease, border-color .14s ease, color .14s ease;
+}
+.navLink:hover{
+  color: rgba(243,244,246,.95);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.10);
+}
+.navLink.active{
+  color: rgba(243,244,246,.95);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.12);
+}
+
+/* Instagram button in header */
+.igHeader{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--text);
+  text-decoration:none;
+  box-shadow: var(--shadow2);
+  transition: transform .12s ease, background .14s ease, border-color .14s ease;
+}
+.igHeader:hover{
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.22);
+  transform: scale(1.04);
+}
+.igHeader:active{
+  transform: scale(0.97);
+}
+
+/* ---- Store layout (music page) ---- */
 .storeLayout{
   display:grid;
   grid-template-columns: 1.15fr .85fr;
-  gap: 26px;
+  gap: 18px;
   align-items:start;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .storeCol{
   display:flex;
   flex-direction:column;
-  gap: 22px;
+  gap: 16px;
 }
 
 /* Column panels */
@@ -118,21 +185,16 @@ h1{
   background: rgba(255,255,255,.045);
   border: 1px solid rgba(255,255,255,.10);
   border-radius: var(--radius);
-  padding: 20px 16px 16px;
+  padding: 16px 14px 14px;
   box-shadow: var(--shadow2);
   backdrop-filter: blur(10px);
-}
-
-@media (max-width: 980px){
-  .storeLayout{ grid-template-columns: 1fr; }
-  h1{ font-size: 38px; }
 }
 
 /* ---- Album tiles ---- */
 .tileGrid{
   display:grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 
 .tile{
@@ -141,7 +203,7 @@ h1{
   border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--radius);
   background: rgba(255,255,255,.045);
-  padding: 14px;
+  padding: 12px;
   display:grid;
   grid-template-columns: 84px 1fr;
   gap: 12px;
@@ -240,12 +302,6 @@ h1{
 .btnPrimary{
   width: 100%;
   justify-content: center;
-}
-
-/* Footer */
-.foot{
-  padding-bottom: 46px;
-  opacity: .9;
 }
 
 /* ---- Modal ---- */
@@ -361,9 +417,7 @@ h1{
   align-items: start;
 }
 
-.modalLeft{
-  min-width: 0;
-}
+.modalLeft{ min-width: 0; }
 
 .modalDesc{
   padding: 12px 12px;
@@ -386,200 +440,13 @@ h1{
   justify-content:flex-end;
 }
 
-/* Mobile */
-@media (max-width: 720px){
-  .modalContentGrid{
-    grid-template-columns: 1fr;
-  }
-  .modalActions{
-    justify-content:flex-start;
-  }
-  .btnPrimary{
-    width:auto;
-  }
-  .tile{
-    grid-template-columns: 76px 1fr;
-  }
-  .cover{
-    width: 76px;
-    height: 76px;
-    border-radius: 16px;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .tile, .cover, .modalOverlay, .modal{ transition: none; }
-  .tile:hover{ transform: none; }
-}
-
-/* Featured section layout */
-.sectionHead{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom: 4px;
-}
-
-.featuredGrid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.tileFeatured{
-  grid-template-columns: 110px 1fr;
-}
-
-.coverFeatured{
-  width: 110px;
-  height: 110px;
-  border-radius: 22px;
-}
-
-@media (max-width: 980px){
-  .featuredGrid{ grid-template-columns: 1fr; }
-  .tileFeatured{ grid-template-columns: 96px 1fr; }
-  .coverFeatured{ width: 96px; height: 96px; border-radius: 20px; }
-}
-
-/* Remove extra vertical gap inside Archive */
-.section .storeLayout .section{
-  margin-top: 0;
-}
-
-/* Bigger separation between top-level sections (Featured / Archive / Contact) */
-main.wrap > .section{
-  margin-top: 44px;
-}
-
-main.wrap > .section:first-child{
-  margin-top: 0;
-}
-
-.featuredSection{
-  margin-top: 0;
-  padding-top: 0;
-  padding-bottom: 6px;
-}
-
-/* Floating Instagram button */
-.igFloat{
-  position: fixed;
-  right: 22px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(10px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color: var(--text);
-  text-decoration:none;
-  box-shadow: var(--shadow2);
-  z-index: 20;
-  transition: transform .12s ease, background .14s ease, border-color .14s ease;
-}
-
-.igFloat:hover{
-  background: rgba(255,255,255,.12);
-  border-color: rgba(255,255,255,.22);
-  transform: translateY(-50%) scale(1.04);
-}
-
-.igFloat:active{
-  transform: translateY(-50%) scale(0.98);
-}
-
-@media (max-width: 720px){
-  .igFloat{
-    right: 14px;
-    width: 42px;
-    height: 42px;
-  }
-}
-
-/* Instagram button in header */
-.igHeader{
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.08);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color: var(--text);
-  text-decoration:none;
-  box-shadow: var(--shadow2);
-  transition: transform .12s ease, background .14s ease, border-color .14s ease;
-}
-
-.igHeader:hover{
-  background: rgba(255,255,255,.12);
-  border-color: rgba(255,255,255,.22);
-  transform: scale(1.04);
-}
-
-.igHeader:active{
-  transform: scale(0.97);
-}
-
-body{
-  overflow-x: hidden;
-}
-
-/* Kill the tiny extra scroll: reduce bottom padding */
-header.wrap{
-  padding-bottom: 10px;
-}
-
-main.wrap{
-  padding-bottom: 10px;
-}
-
-/* Header nav */
-.brand{ display:inline-flex; align-items:center; text-decoration:none; }
-.topRight{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.navLink{
-  color: rgba(243,244,246,.78);
-  text-decoration:none;
-  font-size: 14px;
-  letter-spacing: .02em;
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  background: transparent;
-  transition: background .14s ease, border-color .14s ease, color .14s ease;
-}
-.navLink:hover{
-  color: rgba(243,244,246,.95);
-  background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.10);
-}
-.navLink.active{
-  color: rgba(243,244,246,.95);
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.12);
-}
-
-/* Home hero featured */
-.featuredHero .sectionHead{ margin-bottom: 10px; }
+/* ---- Home hero featured ---- */
+.featuredHero .sectionHead{ margin-bottom: 8px; }
 
 .heroGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 12px;
 }
 
 .heroCard{
@@ -588,10 +455,10 @@ main.wrap{
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.05);
   border-radius: 22px;
-  padding: 14px;
+  padding: 12px;
   display:grid;
-  grid-template-columns: 160px 1fr;
-  gap: 14px;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
   cursor:pointer;
   transition: transform .12s ease, border-color .14s ease, background .14s ease, box-shadow .14s ease;
 }
@@ -604,8 +471,8 @@ main.wrap{
 }
 
 .heroCover{
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   border-radius: 22px;
   overflow:hidden;
   border: 1px solid rgba(255,255,255,.12);
@@ -625,7 +492,7 @@ main.wrap{
   min-width: 0;
 }
 .heroTitle{
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.1;
@@ -637,7 +504,7 @@ main.wrap{
   text-transform: uppercase;
   color: rgba(243,244,246,.55);
 }
-.heroCtaRow{ margin-top: 12px; }
+.heroCtaRow{ margin-top: 10px; }
 .heroPill{
   display:inline-flex;
   align-items:center;
@@ -650,7 +517,7 @@ main.wrap{
   letter-spacing: .04em;
 }
 
-/* Video frame (also reused for beats placeholder) */
+/* ---- Video frame (YouTube) + Beats embed ---- */
 .videoFrame, .beatsEmbed{
   border-radius: 22px;
   overflow:hidden;
@@ -673,6 +540,8 @@ main.wrap{
 }
 
 .videoPlaceholder{
+  position:absolute;
+  inset:0;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -683,7 +552,7 @@ main.wrap{
   line-height: 1.5;
 }
 
-/* Beats embed: not 16:9, so don't force aspect ratio */
+/* Beats embed: don't force aspect ratio */
 .beatsEmbed{
   padding: 12px;
 }
@@ -693,10 +562,64 @@ main.wrap{
   border-radius: 24px;
 }
 
-/* Responsive */
+/* ---- Responsive ---- */
 @media (max-width: 980px){
+  .storeLayout{ grid-template-columns: 1fr; }
   .heroGrid{ grid-template-columns: 1fr; }
   .heroCard{ grid-template-columns: 120px 1fr; }
   .heroCover{ width: 120px; height: 120px; border-radius: 20px; }
-  .heroTitle{ font-size: 18px; }
+}
+
+@media (max-width: 720px){
+  .modalContentGrid{ grid-template-columns: 1fr; }
+  .modalActions{ justify-content:flex-start; }
+  .btnPrimary{ width:auto; }
+
+  .tile{ grid-template-columns: 76px 1fr; }
+  .cover{ width: 76px; height: 76px; border-radius: 16px; }
+
+  .igHeader{ width: 42px; height: 42px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .tile, .cover, .modalOverlay, .modal, .heroCard{ transition: none; }
+  .tile:hover, .heroCard:hover{ transform: none; }
+}
+
+/* Keep this fix: avoid double spacing if you ever nest sections (harmless) */
+.section .storeLayout .section{
+  margin-top: 0;
+}
+
+/* Bigger separation between top-level sections (kept moderate) */
+main.wrap > .section{
+  margin-top: 26px;
+}
+main.wrap > .section:first-child{
+  margin-top: 0;
+}
+
+/* HOME-specific no-scroll tuning hooks */
+body.home header.wrap{
+  padding-top: 12px;
+  padding-bottom: 6px;
+}
+body.home main.wrap{
+  padding-top: 6px;
+  padding-bottom: 8px;
+}
+body.home main.wrap > .section{
+  margin-top: 20px;
+}
+body.home main.wrap > .section:first-child{
+  margin-top: 0;
+}
+
+/* Kill tiny extra scroll: reduce bottom padding on wrappers */
+header.wrap{
+  padding-bottom: 10px;
+}
+main.wrap{
+  padding-bottom: 10px;
 }

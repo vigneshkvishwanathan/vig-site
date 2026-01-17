@@ -623,3 +623,33 @@ header.wrap{
 main.wrap{
   padding-bottom: 10px;
 }
+
+/* Releases: Spotify embed */
+.spotifyEmbed{
+  border-radius: 22px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  padding: 12px;
+}
+
+.spotifyEmbed iframe{
+  width:100%;
+  display:block;
+  border-radius: 16px;
+  border:0;
+}
+
+.spotifyPlaceholder{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding: 26px 18px;
+  color: rgba(243,244,246,.65);
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 16px;
+  border: 1px dashed rgba(255,255,255,.14);
+  background: rgba(255,255,255,.02);
+}

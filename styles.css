@@ -555,7 +555,7 @@ html, body, button, input, textarea, select{
   background-size: cover;
   background-position: center;
   filter: blur(80px) saturate(1.25) contrast(1.08) brightness(1.25);
-  opacity: .65;                 /* key: strong enough to see */
+  opacity: .75;                 /* key: strong enough to see */
   transform: scale(1.25);
   pointer-events:none;
   z-index: 0;

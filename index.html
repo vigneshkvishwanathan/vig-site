@@ -4,14 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIG</title>
-  <meta name="description" content="VIG — producer, sample packs, beats, releases." />
+  <meta name="description" content="VIG — sample packs, beats, releases." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;650;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -49,14 +46,12 @@
   </header>
 
   <main class="wrap">
-    <!-- FEATURED -->
     <section class="section">
       <div class="sectionHead">
         <h2>Featured</h2>
       </div>
 
       <div class="heroGrid">
-        <!-- Featured 1 -->
         <button
           class="heroCard"
           type="button"
@@ -70,14 +65,13 @@
           <div class="heroCover">
             <img src="assets/covers/colors-vig-x-pstmn-cover-art.png" alt="" loading="lazy" />
           </div>
-          <div>
+          <div class="heroInfo">
             <div class="heroTitle">Coming Soon</div>
             <div class="heroSub">Next Drop</div>
             <span class="heroPill">Preview soon</span>
           </div>
         </button>
 
-        <!-- Featured 2 -->
         <button
           class="heroCard"
           type="button"
@@ -91,7 +85,7 @@
           <div class="heroCover">
             <img src="assets/covers/colors-vig-x-pstmn-cover-art.png" alt="" loading="lazy" />
           </div>
-          <div>
+          <div class="heroInfo">
             <div class="heroTitle">Coming Soon</div>
             <div class="heroSub">Featured</div>
             <span class="heroPill">New</span>
@@ -100,35 +94,28 @@
       </div>
     </section>
 
-    <!-- VIDEO -->
     <section class="section">
       <div class="videoFrame">
-        Upload your latest YouTube video here.
+        Latest YouTube video embed goes here.
       </div>
     </section>
   </main>
 
   <!-- MODAL -->
   <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Featured details">
       <div class="modalTop">
         <div class="modalTopLeft">
-          <div class="modalThumb" id="modalThumb"></div>
+          <div class="modalThumb"><img id="modalThumbImg" alt="" /></div>
           <div class="modalTopText">
             <div class="modalTitle" id="modalTitle"></div>
             <div class="modalKicker" id="modalKicker"></div>
           </div>
         </div>
-        <button class="iconBtn" id="closeModal">✕</button>
+        <button class="iconBtn" type="button" id="closeModal" aria-label="Close">✕</button>
       </div>
 
       <div class="modalBody">
-        <!-- BIG HERO COVER -->
-        <div class="modalHeroCover">
-          <img id="modalHeroImg" alt="" />
-        </div>
-
-        <!-- PLAYER -->
         <div class="modalPlayerWrap">
           <iframe
             id="modalFrame"
@@ -142,7 +129,6 @@
           ></iframe>
         </div>
 
-        <!-- CONTENT -->
         <div class="modalContentGrid">
           <div class="modalDesc" id="modalDesc"></div>
           <div class="modalActions" id="modalActions"></div>
@@ -153,47 +139,53 @@
 
   <script>
     const overlay = document.getElementById("modalOverlay");
+    const modalEl = document.querySelector(".modal");
     const frame = document.getElementById("modalFrame");
     const titleEl = document.getElementById("modalTitle");
     const kickerEl = document.getElementById("modalKicker");
     const actionsEl = document.getElementById("modalActions");
     const descEl = document.getElementById("modalDesc");
     const closeBtn = document.getElementById("closeModal");
-    const thumbEl = document.getElementById("modalThumb");
-    const heroImg = document.getElementById("modalHeroImg");
+    const thumbImg = document.getElementById("modalThumbImg");
 
     function openModal(btn){
-      titleEl.textContent = btn.dataset.title || "";
-      kickerEl.textContent = btn.dataset.category || "";
+      const title = btn.dataset.title || "";
+      const kicker = btn.dataset.category || "";
+      const cover = btn.dataset.cover || "";
+      const preview = btn.dataset.preview || "";
+      const buy = btn.dataset.buy || "";
+      const desc = btn.dataset.desc || "";
 
-      thumbEl.innerHTML = "";
-      if(btn.dataset.cover){
-        const img = document.createElement("img");
-        img.src = btn.dataset.cover;
-        thumbEl.appendChild(img);
-        heroImg.src = btn.dataset.cover;
-        heroImg.style.display = "block";
-      } else {
-        heroImg.style.display = "none";
-      }
+      titleEl.textContent = title;
+      kickerEl.textContent = kicker;
+      descEl.textContent = desc;
 
-      if(btn.dataset.preview){
-        frame.src = btn.dataset.preview;
+      // blurred art backdrop
+      if (cover) modalEl.style.setProperty("--modal-art", `url("${cover}")`);
+      else modalEl.style.setProperty("--modal-art", "none");
+
+      // thumb
+      thumbImg.src = cover || "";
+
+      // player (if none, hide it)
+      if (preview) {
+        frame.src = preview;
+        frame.style.display = "block";
       } else {
         frame.src = "";
+        frame.style.display = "none";
       }
 
       actionsEl.innerHTML = "";
-      if(btn.dataset.buy){
+      if (buy) {
         const a = document.createElement("a");
-        a.href = btn.dataset.buy;
-        a.target = "_blank";
         a.className = "btn";
+        a.href = buy;
+        a.target = "_blank";
+        a.rel = "noreferrer";
         a.textContent = "Open";
         actionsEl.appendChild(a);
       }
-
-      descEl.textContent = btn.dataset.desc || "";
 
       overlay.classList.add("open");
       document.body.style.overflow = "hidden";
@@ -202,17 +194,22 @@
     function closeModal(){
       overlay.classList.remove("open");
       frame.src = "";
+      frame.style.display = "block";
+      modalEl.style.setProperty("--modal-art", "none");
       document.body.style.overflow = "";
     }
 
     document.addEventListener("click", (e)=>{
       const btn = e.target.closest(".heroCard");
-      if(btn) openModal(btn);
+      if (btn) openModal(btn);
     });
 
     closeBtn.addEventListener("click", closeModal);
     overlay.addEventListener("click", (e)=>{
-      if(e.target === overlay) closeModal();
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener("keydown", (e)=>{
+      if (e.key === "Escape" && overlay.classList.contains("open")) closeModal();
     });
   </script>
 </body>

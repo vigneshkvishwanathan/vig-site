@@ -1,272 +1,219 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VIG</title>
-    <meta name="description" content="VIG — featured drops and latest video." />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIG</title>
+  <meta name="description" content="VIG — producer, sample packs, beats, releases." />
 
-    <link rel="preconnect" href="https://untitled.stream" />
-    <link rel="preconnect" href="https://www.youtube.com" />
-    <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-
-  <body class="home">
-    <header class="wrap">
-      <div class="top">
+<body class="home">
+  <header class="wrap">
+    <div class="top">
+      <div class="topLeft">
         <a href="index.html" class="brand" aria-label="Home">
           <img src="assets/Viglogowhite.png" alt="VIG" class="siteLogo" />
         </a>
 
-        <div class="topRight">
+        <nav class="mainNav">
           <a class="navLink" href="music.html">Music</a>
           <a class="navLink" href="releases.html">Releases</a>
-
-          <a
-            href="https://instagram.com/beatsbyvig"
-            target="_blank"
-            rel="noreferrer"
-            class="igHeader"
-            aria-label="Open Instagram"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="17" cy="7" r="1" fill="currentColor"/>
-            </svg>
-          </a>
-        </div>
+        </nav>
       </div>
-    </header>
 
-    <main class="wrap">
-      <!-- HERO FEATURED -->
-      <section class="section featuredHero">
-        <div class="sectionHead">
-          <h2>Featured</h2>
-        </div>
+      <div class="topRight">
+        <a
+          href="https://instagram.com/beatsbyvig"
+          target="_blank"
+          rel="noreferrer"
+          class="igHeader"
+          aria-label="Open Instagram"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17" cy="7" r="1" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
 
-        <div class="heroGrid">
-          <!-- Hero 1 -->
-          <button
-            class="heroCard"
-            type="button"
-            data-category="Featured"
-            data-title="Coming Soon"
-            data-cover="assets/covers/colors-vig-x-pstmn-cover-art.png"
-            data-preview=""
-            data-buy="music.html"
-            data-desc="New drop coming soon. Check the Music page for the full catalog."
-          >
-            <div class="heroCover">
-              <img
-                src="assets/covers/colors-vig-x-pstmn-cover-art.png"
-                alt="Coming Soon cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="heroMeta">
-              <div class="heroTitle">Coming Soon</div>
-              <div class="heroSub">Next Release</div>
-              <div class="heroCtaRow">
-                <span class="heroPill">Preview soon</span>
-              </div>
-            </div>
-          </button>
+  <main class="wrap">
+    <!-- FEATURED -->
+    <section class="section">
+      <div class="sectionHead">
+        <h2>Featured</h2>
+      </div>
 
-          <!-- Hero 2 -->
-          <button
-            class="heroCard"
-            type="button"
-            data-category="Featured"
-            data-title="Coming Soon"
-            data-cover="assets/covers/colors-vig-x-pstmn-cover-art.png"
-            data-preview=""
-            data-buy="music.html"
-            data-desc="Second featured slot. When live, this will open the preview player and buy link."
-          >
-            <div class="heroCover">
-              <img
-                src="assets/covers/colors-vig-x-pstmn-cover-art.png"
-                alt="Coming Soon cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="heroMeta">
-              <div class="heroTitle">Coming Soon</div>
-              <div class="heroSub">Featured</div>
-              <div class="heroCtaRow">
-                <span class="heroPill">New</span>
-              </div>
-            </div>
-          </button>
-        </div>
-      </section>
-
-      <!-- LATEST VIDEO -->
-      <section class="section">
-        <div class="videoFrame">
-          <div class="videoPlaceholder">
-            Upload your video, then paste the YouTube embed iframe here.
+      <div class="heroGrid">
+        <!-- Featured 1 -->
+        <button
+          class="heroCard"
+          type="button"
+          data-category="Featured"
+          data-title="Coming Soon"
+          data-cover="assets/covers/colors-vig-x-pstmn-cover-art.png"
+          data-preview=""
+          data-buy="music.html"
+          data-desc="New drop coming soon."
+        >
+          <div class="heroCover">
+            <img src="assets/covers/colors-vig-x-pstmn-cover-art.png" alt="" loading="lazy" />
           </div>
+          <div>
+            <div class="heroTitle">Coming Soon</div>
+            <div class="heroSub">Next Drop</div>
+            <span class="heroPill">Preview soon</span>
+          </div>
+        </button>
 
-          <!-- When ready, replace the placeholder with:
+        <!-- Featured 2 -->
+        <button
+          class="heroCard"
+          type="button"
+          data-category="Featured"
+          data-title="Coming Soon"
+          data-cover="assets/covers/colors-vig-x-pstmn-cover-art.png"
+          data-preview=""
+          data-buy="music.html"
+          data-desc="Second featured slot."
+        >
+          <div class="heroCover">
+            <img src="assets/covers/colors-vig-x-pstmn-cover-art.png" alt="" loading="lazy" />
+          </div>
+          <div>
+            <div class="heroTitle">Coming Soon</div>
+            <div class="heroSub">Featured</div>
+            <span class="heroPill">New</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="section">
+      <div class="videoFrame">
+        Upload your latest YouTube video here.
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modalTop">
+        <div class="modalTopLeft">
+          <div class="modalThumb" id="modalThumb"></div>
+          <div class="modalTopText">
+            <div class="modalTitle" id="modalTitle"></div>
+            <div class="modalKicker" id="modalKicker"></div>
+          </div>
+        </div>
+        <button class="iconBtn" id="closeModal">✕</button>
+      </div>
+
+      <div class="modalBody">
+        <!-- BIG HERO COVER -->
+        <div class="modalHeroCover">
+          <img id="modalHeroImg" alt="" />
+        </div>
+
+        <!-- PLAYER -->
+        <div class="modalPlayerWrap">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            id="modalFrame"
+            src=""
+            width="100%"
+            height="344"
             allowfullscreen
+            allow="picture-in-picture"
+            frameborder="0"
             loading="lazy"
           ></iframe>
-          -->
-        </div>
-      </section>
-    </main>
-
-    <!-- MODAL (for future featured previews) -->
-    <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
-      <div class="modal" role="dialog" aria-modal="true" aria-label="Details">
-        <div class="modalTop">
-          <div class="modalTopLeft">
-            <div class="modalThumb" id="modalThumb" aria-hidden="true"></div>
-            <div class="modalTopText">
-              <div class="modalTitle" id="modalTitle">Preview</div>
-              <div class="modalKicker" id="modalKicker"></div>
-            </div>
-          </div>
-          <button class="iconBtn" type="button" id="closeModal" aria-label="Close">✕</button>
         </div>
 
-        <div class="modalBody">
-          <div class="modalPlayerWrap" id="modalPlayerWrap">
-            <iframe
-              id="modalFrame"
-              src=""
-              width="100%"
-              height="344"
-              allowfullscreen=""
-              allow="picture-in-picture"
-              frameborder="0"
-              loading="lazy"
-              title="Player preview"
-            ></iframe>
-          </div>
-
-          <div class="modalContentGrid">
-            <div class="modalLeft">
-              <div class="modalDesc" id="modalDesc"></div>
-            </div>
-            <aside class="modalSide">
-              <div class="modalActions" id="modalActions"></div>
-            </aside>
-          </div>
+        <!-- CONTENT -->
+        <div class="modalContentGrid">
+          <div class="modalDesc" id="modalDesc"></div>
+          <div class="modalActions" id="modalActions"></div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script>
-      const overlay = document.getElementById("modalOverlay");
-      const frame = document.getElementById("modalFrame");
-      const playerWrap = document.getElementById("modalPlayerWrap");
-      const titleEl = document.getElementById("modalTitle");
-      const kickerEl = document.getElementById("modalKicker");
-      const actionsEl = document.getElementById("modalActions");
-      const descEl = document.getElementById("modalDesc");
-      const closeBtn = document.getElementById("closeModal");
-      const thumbEl = document.getElementById("modalThumb");
+  <script>
+    const overlay = document.getElementById("modalOverlay");
+    const frame = document.getElementById("modalFrame");
+    const titleEl = document.getElementById("modalTitle");
+    const kickerEl = document.getElementById("modalKicker");
+    const actionsEl = document.getElementById("modalActions");
+    const descEl = document.getElementById("modalDesc");
+    const closeBtn = document.getElementById("closeModal");
+    const thumbEl = document.getElementById("modalThumb");
+    const heroImg = document.getElementById("modalHeroImg");
 
-      function escapeHtml(str) {
-        return String(str)
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;")
-          .replaceAll('"', "&quot;")
-          .replaceAll("'", "&#039;");
+    function openModal(btn){
+      titleEl.textContent = btn.dataset.title || "";
+      kickerEl.textContent = btn.dataset.category || "";
+
+      thumbEl.innerHTML = "";
+      if(btn.dataset.cover){
+        const img = document.createElement("img");
+        img.src = btn.dataset.cover;
+        thumbEl.appendChild(img);
+        heroImg.src = btn.dataset.cover;
+        heroImg.style.display = "block";
+      } else {
+        heroImg.style.display = "none";
       }
 
-      function formatDesc(desc) {
-        const safe = escapeHtml(desc || "");
-        return safe.replaceAll("\n", "<br>");
-      }
-
-      function openModal({ category, title, cover, preview, buy, desc }) {
-        titleEl.textContent = title || "Preview";
-        kickerEl.textContent = category ? category.toUpperCase() : "";
-
-        thumbEl.innerHTML = "";
-        if (cover) {
-          const img = document.createElement("img");
-          img.src = cover;
-          img.alt = "";
-          img.loading = "lazy";
-          thumbEl.appendChild(img);
-        }
-
-        if (preview) {
-          playerWrap.style.display = "";
-          frame.src = preview;
-        } else {
-          playerWrap.style.display = "none";
-          frame.src = "";
-        }
-
-        actionsEl.innerHTML = "";
-        if (buy) {
-          const a = document.createElement("a");
-          a.className = "btn btnPrimary";
-          a.href = buy;
-          a.target = "_blank";
-          a.rel = "noreferrer";
-          a.textContent = preview ? "Download / Buy" : "Open";
-          actionsEl.appendChild(a);
-        }
-
-        descEl.innerHTML = formatDesc(desc);
-
-        overlay.classList.add("open");
-        overlay.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-        closeBtn.focus();
-      }
-
-      function closeModal() {
-        overlay.classList.remove("open");
-        overlay.setAttribute("aria-hidden", "true");
+      if(btn.dataset.preview){
+        frame.src = btn.dataset.preview;
+      } else {
         frame.src = "";
-        document.body.style.overflow = "";
       }
 
-      document.addEventListener("click", (e) => {
-        const trigger = e.target.closest(".heroCard");
-        if (!trigger) return;
+      actionsEl.innerHTML = "";
+      if(btn.dataset.buy){
+        const a = document.createElement("a");
+        a.href = btn.dataset.buy;
+        a.target = "_blank";
+        a.className = "btn";
+        a.textContent = "Open";
+        actionsEl.appendChild(a);
+      }
 
-        openModal({
-          category: trigger.dataset.category || "",
-          title: trigger.dataset.title || "",
-          cover: trigger.dataset.cover || "",
-          preview: trigger.dataset.preview || "",
-          buy: trigger.dataset.buy || "",
-          desc: trigger.dataset.desc || "",
-        });
-      });
+      descEl.textContent = btn.dataset.desc || "";
 
-      closeBtn.addEventListener("click", closeModal);
-      overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) closeModal();
-      });
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && overlay.classList.contains("open")) closeModal();
-      });
-    </script>
-  </body>
+      overlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(){
+      overlay.classList.remove("open");
+      frame.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", (e)=>{
+      const btn = e.target.closest(".heroCard");
+      if(btn) openModal(btn);
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", (e)=>{
+      if(e.target === overlay) closeModal();
+    });
+  </script>
+</body>
 </html>

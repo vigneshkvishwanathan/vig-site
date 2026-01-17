@@ -515,3 +515,21 @@ button{
 @media (max-width: 720px){
   .modalContentGrid{ grid-template-columns: 1fr; }
 }
+
+/* =========================
+   HARD LOCK FONT TO PLUS JAKARTA SANS EVERYWHERE
+   ========================= */
+
+:root{
+  --fontMain: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+              "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html, body, button, input, textarea, select{
+  font-family: var(--fontMain) !important;
+}
+
+/* Force tiles + their text too (buttons can sometimes override fonts) */
+.tile, .tile *{
+  font-family: var(--fontMain) !important;
+}
